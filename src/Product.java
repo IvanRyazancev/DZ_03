@@ -1,21 +1,11 @@
 public abstract class Product {
-    private String name;
-    private int price;
+    protected String name;
+    protected long volume;
 
-    public Product(String name, int price) {
-        this.name = name;
-        this.price = price;
-    }
+    public abstract String getName();
+    public abstract void setName(String name);
 
-    public String getName() {
-        return name;
-    }
+    public abstract long getVolume();
 
-    public int getPrice() {
-        return price;
-    }
-    @Override
-    public String toString() {
-        return name + " " + price + "$ ";
-    }
+    public abstract void setVolume(Long volume);
 }

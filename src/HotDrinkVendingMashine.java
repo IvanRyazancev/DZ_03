@@ -1,53 +1,30 @@
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-public class HotDrinkVendingMashine implements VendingMashine {
-    List<Product> hotDrinkList;
+public abstract class HotDrinkVendingMashine implements VendingMashine {
 
-    @Override
-    public Product getProduct() {
-        return null;
-    }
+    private ArrayList<HotDrink> hotdrinks;
 
     @Override
-    public Product getProduct(String name) {
-        return null;
+    public void putHotProduct(ArrayList<HotDrink> item) {
+        this.hotdrinks = item;
     }
-
     @Override
-    public Product getProduct(String name, int price) {
-
-        return null;
-    }
-
-    public Product getProduct(String name, int price, int temperature) {
-        for (int i = 0; i < hotDrinkList.size(); i++) {
-            //HotDrink hotDrink = (HotDrink) hotDrinkList.get(i);
-            if (hotDrinkList.get(i).getName().equals(name) && hotDrinkList.get(i).getPrice() == price &&
-                    ((HotDrink) hotDrinkList.get(i)).getTemperature() == temperature) {
-                return hotDrinkList.remove(i);
+    public HotDrink getHotProduct(String a, Long b, int c) {
+        for (HotDrink hotDrink : hotdrinks) {
+            if (hotDrink.getName().equals(a)) {
+                if (hotDrink.getVolume() == b) {
+                    if (hotDrink.getTemperature() == c) {
+                        hotdrinks.remove(hotDrink);
+                        return hotDrink;
+                    }
+                }
             }
         }
         return null;
-
     }
-
     @Override
-    public void putProduct(Product product) {
-
-    }
-
-    @Override
-    public void putProduct(List<Product> products) {
-        hotDrinkList.addAll(products);
-
-    }
-
-    public HotDrinkVendingMashine() {
-        this.hotDrinkList = new ArrayList<>();
-    }
-
-    public List<Product> getHotDrinkList() {
-        return hotDrinkList;
+    public String toString() {
+        return Arrays.toString(hotdrinks.toArray());
     }
 }

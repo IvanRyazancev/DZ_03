@@ -1,11 +1,8 @@
-import java.util.List;
+import java.util.ArrayList;
 
 public interface VendingMashine {
-    public Product getProduct();
-    public Product getProduct(String name);
-    public Product getProduct(String name, int price);
+    public void putHotProduct(ArrayList<HotDrink> item);
+    public HotDrink putHotProduct(String a, Long b, int c);
 
-    public void putProduct(Product product);
-    public void putProduct(List<Product> products);
-
+    HotDrink getHotProduct(String a, Long b, int c);
 }
